@@ -49,22 +49,20 @@ $(document).ready(function() {
 		position = 0;
 	});
 
-
-		// var pink = $("#pink");
-		// var green = $("#green");
-		// var orange = $("#orange");
-		// var blue = $("#blue");
-
+	//Compares user clicks with lights array.
 	$('#area').click(function(event){
 		var target = $(event.target).attr('id');
 		if (target == lights[position]) {
 			console.log(lights);
+			console.log(position);
 			position++;             
 		}   else {
 			alert("wrong");
 			position = 0;
+			console.log(position);
 		}
 		if (position == lights.length) { 
+			position = 0;
 			simonMove();
 			buttonFlasher();
 		}
@@ -73,8 +71,3 @@ $(document).ready(function() {
 
 });
 })();
-
-	// var timeoutId = setTimeout(function () {
-	//     clearInterval(timer);
-	//     alert('You lose!');
-	// }, 10000);
