@@ -16,12 +16,11 @@ $(document).ready(function() {
 
 	//Simon's turn in the game.
 	function simonMove(){
-
 		randomize();
-		lights.push(random)
+		lights.push(random);
 		console.log(lights);
-		buttonFlasher();
 	}
+
 	//Flashes buttons in the array.
 	function buttonFlasher (){
 		lights.forEach(function(element,index){
@@ -43,36 +42,39 @@ $(document).ready(function() {
 		console.log(random);
 	}
 
-	var pink = $("#pink");
-	var green = $("#green");
-	var orange = $("#orange");
-	var blue = $("#blue");
 	
 
 	//Stops the game
 	$('#stop').click(function (){
-		clearInterval(timer);
 		position = 0;
 	});
 
-	//$(document).keyup(function(event){
-	// 	if (event.keyCode == konami[position]) {
-	// 		position++;              
-	// 	}   else {
-	// 		console.log("incorrect");
-	// 		position = 0;
-	// 	}
 
-	// 	if (position == konami.length) { 
-		// alert("you win");
-	// 	}
+		// var pink = $("#pink");
+		// var green = $("#green");
+		// var orange = $("#orange");
+		// var blue = $("#blue");
 
-	// });
+	$('#area').click(function(event){
+		var target = $(event.target).attr('id');
+		if (target == lights[position]) {
+			console.log(lights);
+			position++;             
+		}   else {
+			alert("wrong");
+			position = 0;
+		}
+		if (position == lights.length) { 
+			simonMove();
+			buttonFlasher();
+		}
+	});
+
+
+});
+})();
 
 	// var timeoutId = setTimeout(function () {
 	//     clearInterval(timer);
 	//     alert('You lose!');
 	// }, 10000);
-
-});
-})();
