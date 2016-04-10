@@ -27,12 +27,25 @@ $(document).ready(function() {
 	}
 
 	//Flashes buttons in the array.
-	function buttonFlasher (){
+	// function buttonFlasher (){
+	// 	lights.forEach(function(element,index){
+	// 		var delay = 800;
+	// 		var flash = setTimeout(function(){	
+	// 			$("#" + lights[index]).addClass("highlighted",delay);
+	// 			$("#" + lights[index]).removeClass("highlighted",delay);
+	// 		},delay*index);	
+	// 	})
+
+	// }
+		function buttonFlasher (){
 		lights.forEach(function(element,index){
-			var delay = 600;
+			var delay = 1000;
 			var flash = setTimeout(function(){	
-				$("#" + lights[index]).addClass("highlighted",delay);
-				$("#" + lights[index]).removeClass("highlighted",delay);
+				$("#" + lights[index]).animate({
+					opacity: .25
+				},500).animate({
+					opacity: 1
+				},500);
 			},delay*index);	
 		})
 
@@ -50,6 +63,7 @@ $(document).ready(function() {
 	$('#stop').click(function (){
 		counter = 0;
 		lights = [];
+		tallyScore(counter);
 	});
 
 	//Compares user clicks with lights array.
