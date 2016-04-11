@@ -49,10 +49,6 @@
     font-size: 25px;
 }
 
-.deactivate {
-    pointer-events: none;
-}
-
 
 #go {
     height: 100px;
@@ -93,21 +89,6 @@
 #stop:hover{
     background: rgb(229,13,0);
 }
-
-/*Flashing light css*/
-.highlighted.pink {
-    background: rgb(227,0,116);
-}
-.highlighted.green {
-    background: rgb(184,208,0);
-}
-.highlighted.orange {
-    background: rgb(255,153,0);
-}
-.highlighted.blue {
-    background: rgb(33,117,217);
-}
-
 
 /*Color Divs*/
 .pink {
