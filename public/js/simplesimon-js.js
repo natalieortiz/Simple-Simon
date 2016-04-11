@@ -8,11 +8,10 @@ $(document).ready(function() {
 	var	random;
 	var position = 0;
 	var counter = 0;
-	var delay = 2000;
 	var beep = new Audio('/audio/beep-02.mp3');
-	var wrongBeep = new Audio('/audio/Price-is-right-losing-horn.mp3');
-	var userBeep = new Audio('/audio/short_beep.mp3');
+	var wrongBeep = new Audio('/audio/Darth_Vader_No.mp3');
 
+	//Starts the game. 
 	$('#go').click(function (){
 		lights = [];
 		simonMove();
@@ -26,12 +25,13 @@ $(document).ready(function() {
 		console.log(lights);
 	}
 
+	//Keeps track of your current streak.
 	function tallyScore(){
 		$('#scoreKeeper').html(counter);
 	}
 
+	//Flashes Simon sequence. 
 	function buttonFlasher (){
-		$('#area').addClass("deactivate");
 		lights.forEach(function(element,index){
 			var delay = 1000;
 			var flash = setTimeout(function(){	
@@ -42,7 +42,7 @@ $(document).ready(function() {
 					opacity: 1
 				},500);
 			},delay*index);
-		})x
+		})
 	}
 
 	//Generates random number and chooses div.
@@ -50,7 +50,7 @@ $(document).ready(function() {
 		random = div[Math.floor(Math.random()* 4)];
 		console.log(random);
 	}
-
+	//Resets game at Game Over. 
 	function reset(){
 		position = 0;
 		counter = 0;
@@ -62,7 +62,6 @@ $(document).ready(function() {
 	$('#area').click(function(event){         
 		var target = $(event.target).attr('id');
 		if (target == lights[position]) {
-			console.log(position);
 			beep.play();
 			position++;  
 		}   else {
